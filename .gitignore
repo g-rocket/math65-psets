@@ -1,0 +1,10 @@
+# ignore all files
+*
+
+# except tex and pdf files
+!*.tex
+!*.pdf
+
+# also include my gsypset.cls and this gitignore file
+!gsypset.cls
+!.gitignore
