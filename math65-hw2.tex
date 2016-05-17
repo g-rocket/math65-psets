@@ -58,48 +58,63 @@
 	\end{solution}
 	
 	\begin{problem}[6.3.7]
-		Determine whether $T$ is a linear transformation.
-		\[
-			T \colon M_{nn} \to \mathbb{R}\ \text{defined by}\ T(A) = \rank(A)
-		\]
+		With
+		\begin{align*}
+			p(x) &= 1 + x^2 \\
+			\mathcal{B} &= \{1+x, 1-x\} \\
+			\mathcal{C} &= \{1,x,x^2\}
+		\end{align*}
+		in $\mathscr{P}_2$,
+		\begin{subproblems}[(a)]
+			\subproblem
+				Find the coordinate vectors $[\mathbf{x}]_\mathcal{B}$ and $[\mathbf{x}]_\mathcal{C}$
+				of $\mathbf{x}$ with respect to the bases $\mathcal{B}$ and $\mathcal{C}$ respectively.
+				\begin{solution}
+					
+				\end{solution}
+				
+			\subproblem
+				Find the change-of-basis matrix $P_{C \leftarrow B}$ from $\mathcal{B}$ to $\mathcal{C}$.
+				\begin{solution}
+					
+				\end{solution}
+				
+			\subproblem
+				Use your answer from part (b) to compute $[\mathbf{x}]_\mathcal{C}$, 
+				and compare you answer with the one found in part (a).
+				\begin{solution}
+					
+				\end{solution}
+				
+			\subproblem
+				Find the change-of-basis matrix $P_{B \leftarrow C}$ from $\mathcal{C}$ to $\mathcal{B}$.
+				\begin{solution}
+					
+				\end{solution}
+				
+			\subproblem
+				Use your answers to parts (c) and (d) to compute $[\mathbf{x}]_\mathcal{C}$, 
+				and compare you answer with the one found in part (a).
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+	
+	\begin{problem}[6.3.18]
+		Express $p(x)=1 + 2x - 5x^2$ as a Taylor polynomial about $a = -2$
 	\end{problem}
 	\begin{solution}
 		
 	\end{solution}
 	
-	\begin{problem}[6.3.18]
-		Let $T \colon M_{22} \to \mathbb{R}$ be a linear transformation for which
-		\begin{align*}
-			T\bm{1&0\\0&0} &= 1, &
-			T\bm{1&1\\0&0} &= 2, &
-			T\bm{1&1\\1&0} &= 3, &
-			T\bm{1&1\\1&1} &= 4
-		\end{align*}
-		\begin{subproblems}[label=\textbullet]
-			\subproblem Find $T\bm{1&3\\4&2}$
-			\begin{solution}
-				
-			\end{solution}
-			
-			\subproblem Find $T\bm{a&b\\c&d}$
-			\begin{solution}
-				
-			\end{solution}
-		\end{subproblems}
-	\end{problem}
-	
 	\begin{problem}[6.3.21]
-		Prove Theorem 6.14(b)
-		
-		\fbox{\begin{minipage}{.6\linewidth}
-			Theorem 6.14:
-			\begin{enumerate}[a.,nosep]
-				\item $T(\mathbf{0}) = \mathbf{0}$
-				\item $T(-\mathbf{v}) = -T(\mathbf{v})$ for all $\mathbf{v}$ in $V$
-				\item $T(\mathbf{u}-\mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v})$
-					for all $\mathbf{u}$ and $\mathbf{v}$ in $V$
-			\end{enumerate}
-		\end{minipage}}
+		Let $\mathcal{B}, \mathcal{C}, \mathcal{D}$ be bases for a finite-dimensional vector space $V$.
+		Prove that
+		\[
+			P_{\mathcal{D} \leftarrow \mathcal{C}} P_{\mathcal{C} \leftarrow \mathcal{B}}
+				= P_{\mathcal{D} \leftarrow \mathcal{B}}
+		\]
 	\end{problem}
 	\begin{solution}
 		
