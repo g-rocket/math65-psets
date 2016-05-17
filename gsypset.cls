@@ -275,6 +275,7 @@
 
 \newcommand{\dx}[1]{\;\mathrm{d}#1}
 \newcommand{\df}[3][\kern -.5pt]{\frac{\mathrm{d}^{#1}#2}{\mathrm{d}#3^{#1}}}
+\newcommand{\pf}[3][\kern -.5pt]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
 
 \newcommand{\fortyfivepreamble}{
 	%\usepackage[tmargin=1.25in,lmargin=1in,rmargin=1in,bmargin=1in,paper=letterpaper]{geometry}
