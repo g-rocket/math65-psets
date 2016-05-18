@@ -179,10 +179,18 @@
 	\item%
 }
 
-\newcommand{\solnspace}[1][10em]{%
+\newcommand{\gsy@solnspace}[1][10em]{%
 	\iftoggle{gsy@hassubproblems}{%
 		\global\toggletrue{gsy@lastsubproblemhadsolution}%
 		\vspace{.5\baselineskip}\hrule%
+		%\ifgsy@printing%
+		%	\vspace{#1}%
+		%\fi%
+	}{}%
+}
+
+\newcommand{\gsy@solnskip}[1][10em]{%
+	\iftoggle{gsy@hassubproblems}{%
 		\ifgsy@printing%
 			\vspace{#1}%
 		\fi%
@@ -190,8 +198,10 @@
 }
 
 \newenvironment{solution}[1][10em]{%
-	\solnspace[#1]
+	\gsy@solnspace[#1]
+	\def\gsy@solnskiplen{#1}
 }{%
+	\gsy@solnskip[\gsy@solnskiplen]
 	\iftoggle{gsy@hassubproblems}{
 		\vfill%
 	}{%
