@@ -2,20 +2,22 @@
 
 \LoadClass[12pt,oneside]{amsart}
 
-\newif\ifgsy@oneperpage
+\newif\ifgsy@oneperpage\gsy@oneperpagetrue
 \newif\ifgsy@problemtitles
 \newif\ifgsy@printing
 \newif\ifgsy@blanks
 \newif\ifgsy@needsproblem\gsy@needsproblemtrue
 \newif\ifgsy@list
 \newif\ifgsy@solutions\gsy@solutionstrue
-\DeclareOption{oneperpage}{\gsy@oneperpagetrue}
+\newif\ifgsy@box
+\DeclareOption{manyperpage}{\gsy@oneperpagefalse}
 \DeclareOption{extratitles}{\gsy@problemtitlestrue}
 \DeclareOption{problemtitles}{\gsy@problemtitlestrue}
 \DeclareOption{printing}{\gsy@printingtrue}
 \DeclareOption{blanks}{\gsy@blankstrue}
 \DeclareOption{microtype}{\RequirePackage{microtype}}
 \DeclareOption{fullproblemnames}{\gsy@needsproblemfalse}
+\DeclareOption{boxes}{\gsy@boxtrue}
 \DeclareOption{list}{%
 	\gsy@listtrue%
 	\AtBeginDocument{%
@@ -92,6 +94,7 @@
 		}%
 	}
 \fi
+\def\mailbox{\name}
 
 \newcommand{\assignment}[1]{%
 	\IfStrEq{#1}{\empty}{}{%
@@ -215,9 +218,13 @@
 \chead{}
 % blank checking from http://tex.stackexchange.com/a/297755/64177
 \rhead{%
-	\expandafter\notblank\expandafter{\gsy@name}{%
-		\gsy@name\\%
-	}{}%
+	\ifgsy@box
+		Box \#\gsy@name\\%
+	\else
+		\expandafter\notblank\expandafter{\gsy@name}{%
+			\gsy@name\\%
+		}{}%
+	\fi
 	\gsy@fullclassname%
 }
 \rfoot{\today}
