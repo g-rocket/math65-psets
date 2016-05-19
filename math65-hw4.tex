@@ -1,0 +1,137 @@
+\documentclass[boxes]{gsypset}
+
+\mailbox{}
+\class{Math 65}
+\assignment{HW 3}
+\duedate{May 19}
+
+\begin{document}
+
+\problemlist{Additional Problem \#1, 6.5.\{33, 35\}, 6.6.\{4, 12, 22\}, 6.4.30, 6.6.32}
+
+\begin{problem}[Additional Problem \#1]
+	Consider the vector space $C^n$, the set of all real-valued
+	functions $f(x)$ for which $f',f'',\dots,f^{(n)}$ exist and are
+	continuous, over $\mathbb{R}$. Show the differential operator
+	\[
+		\mathcal{L}[y(x)]=a_n(x)\df[n]{y}{x}+a_{n-1}(x)\df[n-1]{y}{x}+
+		\dots+a_1(x)\df{y}{x}+a_0(x)y(x)
+	\]
+	is a linear transformation, where $a_0(x),\dots,a_n(x)$ are also
+	$C^n$ functions.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+\newpage
+
+\begin{problem}[6.5.33]
+	Let $S:V\to W$ and $T:U\to V$ be linear transformations.
+	\begin{subproblems}
+		\subproblem Prove that if $S$ and $T$ are both one-to-one, so is $S\circ T$.
+			\begin{solution}
+				
+			\end{solution}
+			
+		\subproblem Prove that if $S$ and $T$ are both onto, so it $S\circ T$.
+			\begin{solution}
+				
+			\end{solution}
+	\end{subproblems}
+\end{problem}
+
+\begin{problem}[6.5.35]
+	Let $T:V\to W$ be a linear transformation between two
+	finite-dimensional vector spaces.
+	\begin{subproblems}
+		\subproblem Prove that if $\dim V<\dim W$, then $T$ cannot be onto.
+			\begin{solution}
+				
+			\end{solution}
+			
+		\subproblem Prove that if $\dim V>\dim W$, then $T$ cannot be one-to-one.
+			\begin{solution}
+				
+			\end{solution}
+	\end{subproblems}
+\end{problem}
+
+\begin{problem}[6.6.4]
+	Find the matrix $[T]_{\mathcal{C}\to \mathcal{B}}$ of the linear transformation $T:V\to W$
+	with respect to the bases $\mathcal{B}$ and $\mathcal{C}$ of $V$ and $W$, respectively. 
+	Verify Theorem 6.26 for the vector $\mathbf{v}$ by computing 
+	$T(\mathbf{v})$ directly and using the theorem.
+	
+	$T: \mathscr{P}_2 \to \mathscr{P}_2$ defined by
+	\begin{align*}
+		T(p(x)) &= p(x+2),\\
+		\mathcal{B} &= \{1,x+2,(x+2)^2\},\\
+		\mathcal{C} &= \{1,x,x^2\},\\
+		\mathbf{v} &= p(x)=a+bx+cx^2
+	\end{align*}
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.6.12]
+	Find the matrix $[T]_{\mathcal{C}\to \mathcal{B}}$ of the linear transformation $T:V\to W$
+	with respect to the bases $\mathcal{B}$ and $\mathcal{C}$ of $V$ and $W$, respectively. 
+	Verify Theorem 6.26 for the vector $\mathbf{v}$ by computing 
+	$T(\mathbf{v})$ directly and using the theorem.
+	
+	$T: M_{22} \to M_{22}$ defined by
+	\begin{align*}
+		T(A) &= A - A^T, \\
+		\mathcal{B} &= \mathcal{C} = \{E_{11},E_{12},E_{21},E_{22}\}, \\
+		\mathbf{v} &= A = \bm{a&b\\c&d}
+	\end{align*}
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.6.22]
+	Determine whether the linear transformation $T$ is invertible 
+	by considering its matrix with respect to the standard bases. 
+	If $T$ is invertible, use Theorem 6.28 and the method of Example 6.82 to find $T^{-1}$.
+	
+	$T: \mathscr{P}_2 \to \mathscr{P}_2$ defined by
+	\[
+		T(p(x)) = p'(x)
+	\]
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.4.30]
+	Verify that $S$ and $T$ are inverses.
+	\begin{align*}
+		\intertext{$S: \mathscr{P}_1 \to \mathscr{P}_1$ defined by}
+		S(a+bx) &= (-4a+b)+2ax
+		\intertext{$T: \mathscr{P}_1 \to \mathscr{P}_1$ defined by}
+		T(a+bx) &= \frac{b}{2} + (a+2b)x
+	\end{align*}
+	In addition, calculate $[S]_\mathcal{B}$ and $[T]_\mathcal{B}$ for some basis $\mathcal{B}$
+	(of your choice) for the vector space in question. 
+	Then show that the matrices are the inverses of each other.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.6.32]
+	A linear transformation $T:V\to V$ is given. 
+	If possible, find a basis $\mathcal{C}$ for $V$ such that the matrix 
+	$[T]_\mathcal{C}$ of $T$ with respect to $\mathcal{C}$ is diagonal.
+	
+	$T: \mathbb{R}^2 \to \mathbb{R}^2$ defined by
+	\[
+		T\left(\bm{a\\b}\right) = \bm{a-b\\a+b}
+	\]
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+\end{document}
