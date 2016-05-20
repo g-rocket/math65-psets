@@ -5,6 +5,9 @@
 !*.tex
 !*.pdf
 
+# ignore generated figures
+*figure*.pdf
+
 # also include my gsypset.cls and this gitignore file
 !gsypset.cls
 !.gitignore
