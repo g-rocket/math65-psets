@@ -10,6 +10,10 @@
 \newif\ifgsy@list
 \newif\ifgsy@solutions\gsy@solutionstrue
 \newif\ifgsy@box
+\newif\ifgsy@condensesubproblems
+\newif\ifgsy@condensed
+\newif\ifgsy@emulatehmc
+\newif\ifgsy@needsproblemlist
 \DeclareOption{manyperpage}{\gsy@oneperpagefalse}
 \DeclareOption{extratitles}{\gsy@problemtitlestrue}
 \DeclareOption{problemtitles}{\gsy@problemtitlestrue}
@@ -18,6 +22,20 @@
 \DeclareOption{microtype}{\RequirePackage{microtype}}
 \DeclareOption{fullproblemnames}{\gsy@needsproblemfalse}
 \DeclareOption{boxes}{\gsy@boxtrue}
+\DeclareOption{condensed}{\gsy@condensesubproblemstrue\gsy@condensedtrue}
+\DeclareOption{hmc}{%
+	\gsy@condensesubproblemstrue%
+	\gsy@problemtitlestrue%
+	\gsy@emulatehmctrue%
+	\AtBeginDocument{
+		\gsy@writehmcblock%
+		\ifundef{\gsy@problemlist}{%
+			\gsy@needsproblemlisttrue%
+		}{%
+			\gsy@writehmcproblemlist%
+		}
+	}
+}
 \DeclareOption{list}{%
 	\gsy@listtrue%
 	\AtBeginDocument{%
@@ -66,11 +84,13 @@
 \allowdisplaybreaks
 \RequirePackage{wrapfig}
 \RequirePackage{fp}
+\RequirePackage{mathtools}
 
 % definitional commands
 \ifgsy@blanks
 	\def\gsy@name{\rule{8em}{0.15mm}}
 	\newcommand{\name}[1]{}
+	\newcommand{\initials}[1]{}
 	\DeclareDocumentCommand{\class}{m g}{%
 		\def\gsy@classname{#1}%
 		\IfValueTF{#2}{%
@@ -81,9 +101,8 @@
 		}%
 	}
 \else
-	\def\gsy@name{Gavin Yancey}
 	\newcommand{\name}[1]{\def\gsy@name{#1}}
-
+	\newcommand{\initials}[1]{\def\gsy@initials{#1}}
 	\DeclareDocumentCommand{\class}{m g}{%
 		\def\gsy@classname{#1}%
 		\IfValueTF{#2}{%
@@ -102,7 +121,33 @@
 	}%
 }
 \newcommand{\duedate}[1]{\def\gsy@duedate{#1}}
-\newcommand{\problemlist}[1]{\def\gsy@allproblems{#1}}
+\newcommand{\problemlist}[1]{%
+	\def\gsy@allproblems{#1}%
+	\ifgsy@needsproblemlist%
+		\gsy@writehmcproblemlist%
+		\gsy@needsproblemlistfalse%
+	\fi%
+}
+\newcommand{\collaborators}[1]{\def\gsy@collaborators{#1}}
+
+\newcommand{\gsy@writehmcblock}{%
+	\begin{flushright}
+		\ifgsy@box
+			Box \#\gsy@name\\%
+		\else
+			\expandafter\notblank\expandafter{\gsy@name}{%
+				\gsy@name\\%
+			}{}%
+		\fi
+		\gsy@fullclassname\\%
+		\gsy@assignment\\%
+		Due \gsy@duedate%
+	\end{flushright}
+}
+
+\newcommand{\gsy@writehmcproblemlist}{%
+	Problems: \gsy@allproblems%
+}
 
 \newcommand{\gsy@problems}{%
 	\ifundef{\gsy@firstproblemnumber}{%
@@ -128,10 +173,18 @@
 \newcounter{gsy@problemnumber}\stepcounter{gsy@problemnumber}
 \global\newtoggle{gsy@hassubproblems}
 \global\newtoggle{gsy@lastsubproblemhadsolution}
+\newsavebox{\gsy@hmcproblembox}
 \newenvironment{problem}[1][\arabic{gsy@problemnumber}]{%
+	\ifgsy@emulatehmc%
+		\begin{lrbox}{\gsy@hmcproblembox}\begin{minipage}{\linewidth}%
+	\fi%
 	\global\togglefalse{gsy@hassubproblems}%
 	\ifgsy@problemtitles%
-		\textbf{Problem #1}\par%
+		\ifgsy@needsproblem
+			\textbf{Problem #1}\par%
+		\else
+			\textbf{#1}\par%
+		\fi
 	\fi%
 	\ifgsy@list%
 		\item[#1]%
@@ -148,13 +201,18 @@
 		\fi%
 	}{%
 		\ifgsy@solutions%
-			\vspace{.5\baselineskip}\hrule%
+			\unless\ifgsy@emulatehmc%
+				\vspace{.5\baselineskip}\hrule%
+			\fi%
 		\else%
 			\ifgsy@oneperpage%
 				\newpage%
 			\else%
 				\vfill
 			\fi%
+		\fi%
+		\ifgsy@emulatehmc%
+			\end{minipage}\end{lrbox}\fbox{\usebox{\gsy@hmcproblembox}}%
 		\fi%
 	}%
 	\global\togglefalse{gsy@hassubproblems}%
@@ -182,7 +240,9 @@
 \newcommand{\gsy@solnspace}[1][10em]{%
 	\iftoggle{gsy@hassubproblems}{%
 		\global\toggletrue{gsy@lastsubproblemhadsolution}%
-		\vspace{.5\baselineskip}\hrule%
+		\unless\ifgsy@emulatehmc%
+			\vspace{.5\baselineskip}\hrule%
+		\fi%
 		%\ifgsy@printing%
 		%	\vspace{#1}%
 		%\fi%
@@ -215,7 +275,6 @@
 \RequirePackage{lastpage}
 \RequirePackage{fancyhdr}
 \fancyhf{}
-\renewcommand{\footrulewidth}{0.4pt}
 % blank checking from http://tex.stackexchange.com/a/297755/64177
 \lhead{%
 	\ifundef{\gsy@assignment}{}{%
@@ -237,16 +296,37 @@
 	\fi
 	\gsy@fullclassname%
 }
-\rfoot{\today}
+
 \@ifpackageloaded{href}{
 	\def\lastpageref{\pageref*{LastPage}}
 }{
 	\def\lastpageref{\pageref{LastPage}}
 }
-\lfoot{Page \thepage{} of \lastpageref}
+
+\newcommand{\gsy@collaboratortext}{%
+	\ifundef{\gsy@collaborators}{}{%
+		\expandafter\notblank\expandafter{\gsy@collaborators}{%
+			Collaborators: \gsy@collaborators%
+		}{}%
+	}%
+}
+
+\ifgsy@condensed
+	\chead{\gsy@collaboratortext}
+\else
+	\renewcommand{\footrulewidth}{0.4pt}
+	\rfoot{\today}
+	\cfoot{\gsy@collaboratortext}
+	\lfoot{Page \thepage{} of \lastpageref}
+\fi
 \setlength{\headheight}{28pt}
-\pagestyle{fancy}
-\thispagestyle{fancy}
+\ifgsy@emulatehmc
+	\pagestyle{empty}
+	\thispagestyle{empty}
+\else
+	\pagestyle{fancy}
+	\thispagestyle{fancy}
+\fi
 
 %======= useful commands =======%
 
@@ -294,43 +374,5 @@
 \newcommand{\df}[3][\kern -.5pt]{\frac{\mathrm{d}^{#1}#2}{\mathrm{d}#3^{#1}}}
 \newcommand{\pf}[3][\kern -.5pt]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
 
-\newcommand{\fortyfivepreamble}{
-	%\usepackage[tmargin=1.25in,lmargin=1in,rmargin=1in,bmargin=1in,paper=letterpaper]{geometry}
-	%\usepackage{amsmath}
-	\RequirePackage[colorlinks=true]{hyperref}
-	%\usepackage{amsfonts}
-	%\usepackage{fancyhdr}
-	\RequirePackage{graphicx}
-	\RequirePackage{calc}
-	\RequirePackage{url}
-	\renewcommand{\Re}{\mathop{\rm {Re}}}
-	\renewcommand{\Im}{\mathop{\rm {Im}}}
-	\newcommand{\R}{\mathbb{R}}
-	\newcommand{\ra}{\rightarrow}
-	\newcommand{\ds}{\displaystyle}
-	\newcommand{\mybox}{\mbox{\hspace{.02in}}\fbox{\rule[-1mm]{0mm}{6mm}\hspace{.30in}}\mbox{\hspace{.02in}}}
-	\begin{document}
-	%
-	%\newcounter{probnum}
-	%\newenvironment{problems}
-	%   {\begin{list}{{\bf \arabic{probnum}:}}%
-	%       {\setlength\labelwidth{.25in}%
-	%         \setlength\leftmargin{0in}%
-	%         \setlength\itemsep{\parsep}%
-	%         \usecounter{probnum}}}%
-	%   {\end{list}}
-	%
-	\renewcommand{\theenumi}{\alph{enumi}}
-	\renewcommand{\labelenumi}{(\theenumi)}
-	\renewcommand{\theenumii}{\arabic{enumii}}
-	\renewcommand{\labelenumii}{(\theenumii)}
-	%
-	\parindent=0pt
-	%
-	%\pagestyle{fancy}
-	%
-	%\lhead{Math 45 Spring 2016}
-	%\rhead{Profs.\ Levy \& Yong}
-}
 
 
