@@ -192,9 +192,17 @@
 	\gsy@updateproblemnumbers{#1}%
 	\stepcounter{gsy@problemnumber}%
 }{%
+	\ifgsy@emulatehmc%
+		\end{minipage}\end{lrbox}\fbox{\usebox{\gsy@hmcproblembox}}%
+	\fi%
 	\iftoggle{gsy@hassubproblems}{%
+		\ifgsy@condensesubproblems%
+			\unless\ifgsy@emulatehmc%
+				\vspace{.5\baselineskip}\hrule%
+			\fi%
+		\fi%
 		\nottoggle{gsy@lastsubproblemhadsolution}{%
-			\vfill
+			\vfill%
 		}{}%
 		\ifgsy@oneperpage%
 			\newpage%
@@ -210,9 +218,6 @@
 			\else%
 				\vfill
 			\fi%
-		\fi%
-		\ifgsy@emulatehmc%
-			\end{minipage}\end{lrbox}\fbox{\usebox{\gsy@hmcproblembox}}%
 		\fi%
 	}%
 	\global\togglefalse{gsy@hassubproblems}%
@@ -237,33 +242,29 @@
 	\item%
 }
 
-\newcommand{\gsy@solnspace}[1][10em]{%
+\newenvironment{solution}[1][10em]{%
 	\iftoggle{gsy@hassubproblems}{%
 		\global\toggletrue{gsy@lastsubproblemhadsolution}%
-		\unless\ifgsy@emulatehmc%
+		\unless\ifgsy@condensesubproblems%
 			\vspace{.5\baselineskip}\hrule%
 		\fi%
 		%\ifgsy@printing%
 		%	\vspace{#1}%
 		%\fi%
 	}{}%
-}
-
-\newcommand{\gsy@solnskip}[1][10em]{%
-	\iftoggle{gsy@hassubproblems}{%
-		\ifgsy@printing%
-			\vspace{#1}%
-		\fi%
-	}{}%
-}
-
-\newenvironment{solution}[1][10em]{%
-	\gsy@solnspace[#1]
 	\def\gsy@solnskiplen{#1}
 }{%
-	\gsy@solnskip[\gsy@solnskiplen]
+	\unless\ifgsy@condensesubproblems%
+		\iftoggle{gsy@hassubproblems}{%
+			\ifgsy@printing%
+				\vspace{\gsy@solnskiplen}%
+			\fi%
+		}{}%
+	\fi%
 	\iftoggle{gsy@hassubproblems}{
-		\vfill%
+		\unless\ifgsy@condensesubproblems%
+			\vfill%
+		\fi%
 	}{%
 		\ifgsy@oneperpage%
 			\newpage%
