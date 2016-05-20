@@ -1,0 +1,148 @@
+\documentclass[boxes]{gsypset}
+
+% Info for header
+\mailbox{}
+%\initials{}
+\class{Math 65}
+\assignment{HW 3}
+\duedate{May 19}
+
+\DeclareMathOperator{\spn}{span}
+
+\begin{document}
+
+\problemlist{6.1.47, 6.3.16, 6.4.\{4, 21\}, 6.5.12, 6.6.2, 4.4.22, EC: 6.2.33}
+
+\noindent
+\emph{Intructor's Note:} I recommend that you also look at the Chapter Review on
+pages 527-528 of Poole and skim the problems to see if there are any concepts or
+problems that seem challenging to you. Try some of these problems for more
+practice.
+
+\begin{problem}[6.1.47]
+	Let $V$ be a vector space with subspaces $U$ and $W$. Give an
+	example with $V=\mathbb{R}^2$ to show that $U \cup W$ need not be a
+	subspace of $V$.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.3.16]
+	Let $\mathcal{B}$ and $\mathcal{C}$ be bases for $\mathscr{P}_2$. 
+	If $\mathcal{B}=\{x,1+x,1-x+x^2\}$ and the change-of-basis matrix from 
+	$\mathcal{B}$ to $\mathcal{C}$ is
+	\[
+		P_{\mathcal{C}\leftarrow\mathcal{B}}=\bm{1&0&0\\0&2&1\\-1&1&1},
+	\]
+	find $\mathcal{C}$.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.4.4]
+	Determine whether $T:M_{nn}\to M_{nn}$, defined by $T(A)=AB-BA$,
+	where $B$ is a fixed $n\times n$ matrix,
+	is a linear transformation.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.4.21]
+	\fbox{\begin{minipage}{\linewidth}
+		THEOREM 6.14:
+		
+		Let $T: U \to V$ be a linear transformation. Then,
+		\begin{enumerate}[a.]
+			\item $T(\mathbf{0}) = \mathbf{0}$.
+			\item $T(-\mathbf{v}) = -T(\mathbf{v})$ for all $\mathbf{v}$ in $V$.
+			\item $T(\mathbf{u} - \mathbf{v}) = T(\mathbf{u}) - T(\mathbf{v})$
+				for all $\mathbf{u}$ and $\mathbf{v}$ in $V$.
+		\end{enumerate}
+	\end{minipage}}
+	
+	Prove Theorem 6.14(b).
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.5.12]
+	$T:M_{22}\to M_{22}$ defined by $T(A)=AB-BA$, where $B=\bm{1&1\\0&1}$
+	
+	Find either the nullity or the rank of $T$ and
+	then use the Rank Theorem to find the other.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[6.6.2]
+	\fbox{\begin{minipage}{\linewidth}
+		THEOREM 6.26:
+		
+		Let $V$ and $W$ be two finite-dimensional vector spaces with bases 
+		$\mathcal{B}$ and $\mathcal{C}$ respectively, where 
+		$\mathcal{B} = \{\mathbf{v}_1,\dots,\mathbf{v}_n\}$.
+		If $T: V \to W$ is a linear transformation, then the $m \times n$ matrix $A$ defined by
+		\[
+			A = \bm{\left[T(\mathbf{v}_1)\right]_\mathcal{C} &
+			        \left[T(\mathbf{v}_2)\right]_\mathcal{C} &
+			        \cdots &
+			        \left[T(\mathbf{v}_n)\right]_\mathcal{C}}
+		\]
+		satisfies
+		\[
+			A[\mathbf{v}]_\mathcal{B} = [T(\mathbf{v})]_\mathcal{C}
+		\]
+		for every vector $\mathbf{v}$ in $V$.
+	\end{minipage}}
+	
+	Find the matrix $[T]_{\mathcal{C}\leftarrow\mathcal{B}}$
+	of the linear transformation $T:V\to W$ with respect to the bases 
+	$\mathcal{B}$ and $\mathcal{C}$ of $V$ and $W$, respectively. 
+	Verify Theorem 6.26 for the vector \textbf{v} by 
+	computing $T(\textbf{v})$ directly and using the theorem.
+	
+	$T: \mathscr{P}_1 \to \mathscr{P}_1$ defined by
+	\begin{align*}
+		T(a+bx) &= b-ax, \\
+		\mathcal{B} &= \{1+x,1-x\}, \\
+		\mathcal{C} &= \{1,x\}, \\
+		\textbf{v} &= p(x)=4+2x
+	\end{align*}
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[4.4.22]
+	Use the method of Example 4.29 to compute
+	\[
+		\bm{2&0&1\\1&1&1\\1&0&2}^k
+	\]
+	(assume that $k$ is a positive integer)
+	
+	[\textit{Hint}: Example 4.29 uses the equality $M^n = PD^nP^{-1}$.]
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[Extra Credit: 6.2.33]
+	Let $\{\textbf{u}_1,...,\textbf{u}_m\}$ be 
+	a set of vectors in an $n$-dimensional vector space $V$ and let 
+	$\mathcal{B}$ be a basis for $V$. 
+	Let $S=\{[\textbf{u}_1]_{\mathcal{B}},...,[\textbf{u}_m]_{\mathcal{B}}\}$
+	be on the set of coordinate vectors of
+	$\{\textbf{u}_1,...,\textbf{u}_m\}$ with respect to $\mathcal{B}$. 
+	Prove that $\spn(\textbf{u}_1,...,\textbf{u}_m)=V$ if and only if $\spn(S)=\mathbb{R}^n$.
+	
+	(Remember that to prove an if-and-only-if theorem, you need to prove both directions.)
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+\end{document}
