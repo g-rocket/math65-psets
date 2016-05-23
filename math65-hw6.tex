@@ -8,8 +8,6 @@
 \assignment{HW 6}
 \duedate{May 24, 2016}
 
-\DeclareMathOperator{\spn}{span}
-
 \begin{document}
 
 \textsf{\textbf{Note:}} You need to be able to calculate eigenvalues and eigenvectors by hand on the final exam. If you haven't honed this skill well enough to the point where you can do it quickly and error-free, then perform the calculations on your homework assignments by hand. If you don't need the practice, then feel free to use the computer to do those calculations for you.
@@ -75,9 +73,9 @@
 		\subproblem Find a unit vector $\hat{\mathbf{v}}_4$ that allows 
 			$B=\{\hat{\mathbf{v}}_1,\dots,\hat{\mathbf{v}}_4\}$ to be an orthonormal basis for $\mathbb{R}^4$.
 			
-			\textbf{Hint:} One way to do this to construct a matrix matrix $Q$ whose columns are 
+			\textbf{Hint:} One way to do this to construct a matrix $Q$ whose columns are 
 			$\hat{\mathbf{v}}_1,\dots,\hat{\mathbf{v}}_4$. 
-			Find the missing fourth column of the matrix so that $QQ^T=Q^TQ=I$.
+			Find the missing fourth column of the matrix so that $QQ^T=Q^TQ=I_4$.
 			\begin{solution}
 				
 			\end{solution}
@@ -101,7 +99,7 @@
 		\end{cases}
 	\]
 	Then, find the specific solution corresponding to the initial
-	conditions $x_1(0)=1$, $x_2(0)=1$, and to describe what happens to this
+	conditions $x_1(0)=1$, $x_2(0)=1$, and describe what happens to this
 	solution as $t\to\infty$.\\
 	
 	\textbf{Note:} Follow the method in the lecture notes closely. 
@@ -116,12 +114,12 @@
 	Find the general solution to
 	\[
 		\begin{cases}
-			x_1'(t)&\hspace{-.12in}=x_1/2+9x_2\\
-			x_2'(t)&\hspace{-.12in}=x_1/2+2x_2.
+			x_1'(t)&\hspace{-.12in}=\frac{1}{2}x_1+9x_2\\
+			x_2'(t)&\hspace{-.12in}=\frac{1}{2}x_1+2x_2.
 		\end{cases}
 	\]
 	Then, find the specific solution corresponding to the initial
-	conditions $x_1(0)=1$, $x_2(0)=1$, and to describe what happens to this
+	conditions $x_1(0)=1$, $x_2(0)=1$, and describe what happens to this
 	solution as $t\to\infty$.
 \end{problem}
 \begin{solution}
@@ -137,7 +135,7 @@
 		\end{cases}
 	\]
 	Then, find the specific solution corresponding to the initial
-	conditions $x_1(0)=7$, $x_2(0)=0$, and to describe what happens to this
+	conditions $x_1(0)=7$, $x_2(0)=0$, and describe what happens to this
 	solution as $t\to\infty$.
 	
 	\textbf{Hint:} This time, you will find that the matrix cannot be diagonalized. 
