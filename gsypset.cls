@@ -313,7 +313,7 @@
 }
 
 \ifgsy@condensed
-	\chead{\gsy@collaboratortext}
+	\chead{Page \thepage{} of \lastpageref\\\gsy@collaboratortext}
 \else
 	\renewcommand{\footrulewidth}{0.4pt}
 	\rfoot{\today}
@@ -322,8 +322,8 @@
 \fi
 \setlength{\headheight}{28pt}
 \ifgsy@emulatehmc
-	\pagestyle{empty}
-	\thispagestyle{empty}
+	\pagestyle{plain}
+	\thispagestyle{plain}
 \else
 	\pagestyle{fancy}
 	\thispagestyle{fancy}
