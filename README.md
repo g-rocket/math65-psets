@@ -40,7 +40,7 @@ of a large multi-part problem immediately under the problem statement for that p
         \begin{solution}
           The solution to the second subproblem
         \end{solution}
-      \end{subproblem}
+      \end{subproblems}
     \end{problem}
     ```
     * A problem with subproblems should *not* be followed by a `solution` environment, although nothing should break too badly if it is.
