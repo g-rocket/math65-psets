@@ -1,9 +1,11 @@
 # ignore all files
 *
 
-# except tex and pdf files
+# except tex and pdf files and images
 !*.tex
 !*.pdf
+!/img
+!/img/**
 
 # ignore generated figures
 *figure*.pdf
