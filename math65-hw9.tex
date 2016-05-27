@@ -1,0 +1,147 @@
+\documentclass[boxes]{gsypset}
+
+% Info for header
+\mailbox{}
+\initials{}
+\collaborators{}
+\class{Math 65}
+\assignment{HW 9}
+\duedate{May 27, 2016}
+
+\usepackage{hyperref}
+
+\newcommand{\pn}[1]{\left( #1 \right)}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bk}[1]{\left[ #1 \right]}
+\newcommand{\m}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\f}[2]{\frac{#1}{#2}}
+\renewcommand{\bf}[1]{\mathbf{#1}}
+\renewcommand{\labelenumi}{{(\alph{enumi})}}
+
+\begin{document}
+
+\problemlist{1, 2, 3}
+
+\begin{problem}
+	Consider the inhomogeneous linear system of differential equations
+	\[
+		\bf{x}'=\m{5&-4\\6&-5}\bf{x}+\m{e^{t}\\0}.
+	\]
+	Note that the system matrix has eigenvalues $\lambda_1=1$ and
+	$\lambda_2=-1$ with corresponding eigenvectors $\bf{v}_1=\m{1\\1}$
+	and $\bf{v}_2=\m{2\\3}$.
+	\begin{subproblems}
+		\subproblem 
+			Assume that the solution to this system $\bf{x}$ has the form
+			$\m{a_1e^{-t}+b_1e^{t}+c_1te^{t}\\a_2e^{-t}+b_2e^{t}+c_2te^{t}}$
+			for constants $a,b,c,d,e\mbox{ and }f$.  Use the method of
+			undetermined coefficients to find the general solution to
+			this system.
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem Why was the assumption made in part (a) reasonable given
+			what you know about the matrix $A$?
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem Recalculate the solution using the integrating factor
+			formula.  Reconcile your answer from this calculation with
+			your previous calculation to show they are equivalent.
+			\begin{solution}
+				
+			\end{solution}
+	\end{subproblems}
+\end{problem}
+
+\begin{problem}
+	Solve the initial value problem
+	\[
+		\bf{x}'(t)=\m{0&2\\-2&0}\bf{x}(t)
+		+\m{\cos(\omega t)\\-\sin(\omega t)}
+	\]
+	where $\omega$ is a nonzero constant and
+	$\bf{x}(0)=\m{a\\b}$. Make sure your solution is valid for all
+	values of $\omega\neq0$.  In particular, be careful not to divide
+	by 0 when $\omega=-2$.  Work out the solution in the case when
+	$\omega\neq-2$, then work out the solution in the case when
+	$\omega=-2$.  You may use either the undetermined coefficients or
+	integrating factor method.  You will get extra credit if you
+	perform both calculations and show that they are equivalent.\\\\
+	\textbf{Hint:} If you're using the undetermined coefficients
+	method, think about what we did in Math 45 when the forcing
+	function took on the same form as the homogeneous solution.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}
+	As we will discuss in class on Friday, closed-form solutions to
+	non-constant-coefficient linear systems of differential equations
+	are generally unavailable.  However, if you are lucky enough to
+	solve a homogeneous (unforced) non-constant-coefficient linear
+	system, solving the inhomogeneous (forced) version is relatively
+	easy.  In this exercise, we'll walk you through how this works.\\\\
+	Consider the following initial value problem:
+	\[
+		\bf{x}'(t)=A(t)\bf{x}+\bf{F}(t)=\m{2&-2e^{-t}\\e^{t}&0}\bf{x}
+		+\m{4\\6}\qquad\text{with}\qquad\bf{x}(0)=\m{-1\\1}.
+	\]
+	\textbf{Hint:} Throughout this problem, you should use the formula
+	\[
+		\m{a&b\\c&d}^{-1}=\f{1}{ad-bc}\m{d&-b\\-c&a}
+	\]
+	to calculate the inverse of a $2\times2$ matrix. (Unfortunately,
+	there are no simple formulas for larger matrices.)
+	\textbf{Note:} To learn more about fundamental matrices and the
+	derivation of the variation of parameters formula, read Section
+	7.9 of Boyce and diPrima.
+	\begin{subproblems}
+		\subproblem First, verify that
+			\[
+				\bf{x}_h(t)=c_1\m{2e^{t}\\e^{2t}}+c_2\m{1\\e^{t}}
+			\]
+			is the general solution to the homogeneous version of the ODE
+			(that is, the version of the ODE without the forcing term
+			$\bf{F}$) for any $c_1$ and $c_2$.
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem Arrange the two linearly independent solutions from part
+			(a) as columns in a matrix $\Psi(t)$, which is called a
+			\textit{fundamental matrix}. Verify that
+			$\Psi'(t)=A(t)\Psi(t)$.
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem The general solution to homogeneous equation is
+			$\bf{x}_h(t)=\Psi(t)\bf{c}$ for some constant vector
+			$\bf{c}=\m{c_1\\c_2}$. What must $\bf{c}$ be to satisfy the
+			initial condition $\bf{x}_h(t_0)=\bf{x}_0$?
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem The \textit{transition matrix} for this system is
+			defined to be $\Phi(t,s)=\Psi(t)\Psi(s)^{-1}$. Calculate it.
+			\textbf{Note:} The reason why we call this a ``transition
+			matrix'' is that the effect of multiplication by the
+			matrix $\Phi(t,t_0)$ is to transition the homogeneous
+			solution forward in time from $t_0$ to $t$.
+			\begin{solution}
+				
+			\end{solution}
+		\subproblem Armed with the transition matrix corresponding to the
+			homogeneous ODE, we can now calculate the solution to the
+			inhomogeneous ODE using the variation of parameters formula
+			\[
+				\bf{x}(t)=\Phi(t,0)\bf{x}(0)
+				+\int_{0}^{t}\Phi(t,s)\bf{F}(s)~ds.
+			\]
+			Use this formula to calculate the solution to the IVP.
+			\begin{solution}
+				
+			\end{solution}
+	\end{subproblems}
+\end{problem}
+\end{document}
