@@ -29,7 +29,7 @@
 	\gsy@emulatehmctrue%
 	\AtBeginDocument{
 		\gsy@writehmcblock%
-		\ifundef{\gsy@problemlist}{%
+		\ifundef{\gsy@allproblems}{%
 			\gsy@needsproblemlisttrue%
 		}{%
 			\gsy@writehmcproblemlist%
