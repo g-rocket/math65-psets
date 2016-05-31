@@ -26,16 +26,9 @@
 				\begin{solution}
 					
 				\end{solution}
-			\subproblem Locate all the equilibrium points of the system.
-				\begin{solution}
-					
-				\end{solution}
 			\subproblem 
-				For each equilibrium point, 
-				(i) write down the linearized differential equation about that point, 
-				(ii) calculate the eigenvalues of the linearized system, 
-				(iii) use the eigenvalues to determine the behavior (unstable/stable, node/spiral, etc.) 
-				of the linearized system near each point.
+				Locate all the equilibrium points of the system 
+				by finding the intersections of the nullclines.
 				\begin{solution}
 					
 				\end{solution}
@@ -45,6 +38,15 @@
 				ODEToolkit\footnote{\url{http://odetoolkit.hmc.edu}}. 
 				Explain how this phase plane portrait is consistent with all of the 
 				observations you've made on this problem.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				For each equilibrium point you found in part (b), 
+				(i) write down the linearized differential equation about that point, 
+				(ii) calculate the eigenvalues of the linearized system, 
+				(iii) use the eigenvalues to determine the behavior (unstable/stable, node/spiral, etc.) 
+				of the linearized system near each point.
 				\begin{solution}
 					
 				\end{solution}
@@ -176,16 +178,7 @@
 		In this problem, you will complete the local stability analysis of this system of DEs.
 		\begin{subproblems}
 			\subproblem 
-				In all four cases, there is always one boring equilibrium point in which 
-				both populations go extinct ($x=y=0$). 
-				Calculate the Jacobian matrix for the DEs and evaluate it at this equilibrium point. 
-				What do the eigenvalues of this matrix tell you about 
-				the stability of the linearized system near this equilibrium point?
-				\begin{solution}
-					
-				\end{solution}
-			\subproblem 
-				In all four cases, there are two other equilibrium points: 
+				In all four cases, there are at least two other equilibrium points: 
 				one in which the $x$-population goes extinct but the other doesn't, and 
 				one in which the $y$-population goes extinct but the other doesn't.  
 				Calculate the locations of these two equilibrium points.
@@ -203,7 +196,7 @@
 				\begin{solution}
 					
 				\end{solution}
-			\subproblem Repeat part (c) for case 2.
+			\subproblem Repeat part (b) for case 2.
 				\begin{solution}
 					
 				\end{solution}
@@ -215,7 +208,7 @@
 				\end{solution}
 			\subproblem 
 				Consider the parameter values $r_1=a_1=b_1=a_2=1$, $r_2=1/2$, and $b_2=1/4$. 
-				According to your work from part (e), 
+				According to your work from part (d), 
 				which case does this set of parameter values fall under? 
 				Locate the equilibrium point for which $x>0$ and $y>0$. 
 				Calculate the eigenvalues of $D\mathbf{f}(\mathbf{x}_{\text{eq}})$ for this equilibrium point 
@@ -225,10 +218,10 @@
 				\begin{solution}
 					
 				\end{solution}
-			\subproblem (Extra credit) 
-				For an arbitrary set of parameters in cases 3 and 4, 
-				calculate the location of equilibrium point for which $x>0$ and $y>0$ and 
-				determine the stability of the linearized system about this equilibrium point.
+			\subproblem 
+				Locate the equilibrium point where both populations coexist 
+				(whether the equilibrium point is stable or not) in cases 3 and 4. 
+				Your answer will involve $r_1$, $a_1$, $b_1$, $r_2$, $a_2$, and $b_2$.
 				\begin{solution}
 					
 				\end{solution}
