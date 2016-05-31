@@ -230,6 +230,15 @@
 	\endproblem
 }
 
+\newcommand{\hmcbreakproblem}{%
+	\ifgsy@emulatehmc%
+		\endproblem%
+		\par%
+		\addtocounter{gsy@problemnumber}{-1}%
+		\problem[\arabic{gsy@problemnumber} (continued)]%
+	\fi%
+}
+
 \newenvironment{subproblems}[1][(a)]{%
 	\global\toggletrue{gsy@hassubproblems}%
 	\enumerate[#1]%
