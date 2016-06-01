@@ -1,0 +1,269 @@
+\documentclass[boxes]{gsypset}
+
+% Info for header
+\mailbox{}
+\initials{}
+\collaborators{}
+\class{Math 65}
+\assignment{HW 12}
+\duedate{June 2, 2016}
+
+\usepackage{hyperref}
+
+\begin{document}
+	\begin{problem}
+		Consider the nonlinear system of DEs
+		\begin{align*}
+			x' &= x - y + x^2 - xy \\
+			y' &= -y + x^2
+		\end{align*}
+		
+		\begin{subproblems}
+			\subproblem 
+				Find the nullclines of this system. 
+				Use the nullclines to perform ``sign analysis.'' 
+				In other words, determine the signs of $x'$ and $y'$ 
+				in each of the regions of the phase plane delineated by the nullclines.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem Locate the equilibrium points of this system of differential equations.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem For each equilibrium point,
+				\begin{itemize}
+					\item write down the linearized system of DEs about that point,
+					\item calculate the eigenvalues of the linearized system,
+					\item 
+						use the eigenvalues to determine the behavior 
+						(unstable/stable, node/spiral, etc.) of the linearized system about that point,
+					\item 
+						if possible use that information about the linearized system to infer 
+						something about the nature of the equilibrium point 
+						of the original nonlinear system of DEs.
+				\end{itemize}
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Use the information about these equilibrium points and the sign analysis to 
+				sketch orbits by hand on your phase plane.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Use mathematical software to plot a phase plane portrait of the system and 
+				compare it to your hand sketch. 
+				Please do this only after you've tried your best to do what you can by hand. 
+				Feel free to use the computer-generated picture to correct any details 
+				that you might have missed.
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+	
+	\begin{problem}
+		The nonlinear stability of an equilibrium point cannot be
+	  reliably predicted if all that is known is that the linearized
+	  system has a center there.  This can be demonstrated by these two
+	  systems of equations.
+		\begin{align*}{3}
+			\dot{x} &= y+x(x^2+y^2) & 
+				\qquad\qquad &\raisebox{-.1in}[0mm][0mm]{\text{and}} \qquad\qquad &
+				\dot{x}&=y-x(x^2+y^2) \\
+			\dot{y} &= -x+y(x^2+y^2) &&& \dot{y} &= -x-y(x^2+y^2)
+		\end{align*}
+		\begin{subproblems}
+			\subproblem 
+				Linearize both systems about the origin (the only equilibrium point). 
+				What type of equilibrium point does the linearized system have at the origin?
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Use computer software to show what the solution trajectories actually look like 
+				if you choose initial conditions that are close to the origin. 
+				Based on these calculations, what is the true nature of 
+				the equilibrium point at the origin for each system of equations?
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem (Extra credit) 
+				Convert both systems of equations from Cartesian coordinates $(x,y)$ 
+				to polar coordinates $(r,\theta)$, where $r^2=x^2+y^2$, etc. 
+				What do the converted equations tell you about the stability of the origin in each case?
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{problem}
+		On the last assignment, you began analyzing the competitive species population model:
+		\begin{align*}
+			x'(t) &= x(r_1-a_1x-b_1y) \\
+			y'(t) &= y(r_2-a_2y-b_2x)
+		\end{align*}
+		All of the parameters in the DE above ($r_1$, $a_1$, $b_1$, $r_2$, $a_2$, $b_2$) are positive, 
+		and we restrict our attention to $x\geq 0$ and $y\geq 0$ only.  
+		Depending on these six constants, there are four different 
+		(nondegenerate) cases to be considered.
+		
+		\footnotesize
+		\begin{tabular}{c|c|c}
+			Case & Condition & Behavior \\ \hline
+			1 & 
+			$\frac{r_1}{a_1}<\frac{r_2}{b_2}$ \&
+			$\frac{r_1}{b_1}<\frac{r_2}{a_2}$
+			&
+			$x$ goes extinct for any positive initial population values \\
+			2 & 
+			$\frac{r_1}{a_1}>\frac{r_2}{b_2}$ \&
+			$\frac{r_1}{b_1}>\frac{r_2}{a_2}$
+			&
+			$y$ goes extinct for any positive initial population values \\
+			3 & 
+			$\frac{r_1}{a_1}<\frac{r_2}{b_2}$ \&
+			$\frac{r_1}{b_1}>\frac{r_2}{a_2}$
+			&
+			both $x,y$ approach coexistence for any positive initial population values \\
+			4 & 
+			$\frac{r_1}{a_1}>\frac{r_2}{b_2}$ \&
+			$\frac{r_1}{b_1}<\frac{r_2}{a_2}$
+			&
+			one species will go extinct, depending on initial population values
+		\end{tabular}
+		\normalsize
+		
+		Please refer to the solutions for Homework \#11 for complete details.
+		\begin{subproblems}
+			\subproblem 
+				In all four cases, there are three extinction equilibrium points: 
+				$(0,0)$, $(r_1/a_1,0)$, and $(0,r_2/a_2)$. 
+				Use local stability analysis to determine the nature of 
+				each equilibrium point in all four cases.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				In cases 3 and 4, there is an additional coexistence equilibrium point at
+				\[
+					\mathbf{x}_{\text{eq}}
+						= \left(x_{\text{eq}},y_{\text{eq}}\right)
+						= \left(\frac{r_1a_2-b_1r_2}{a_1a_2-b_1b_2},\frac{a_1r_1-r_2b_2}{a_1a_2-b_1b_2}\right)
+				\]
+				that is viable. 
+				Pick some values for the six constants so that you are in case 3. 
+				Use those values to perform local stability analysis to 
+				determine the nature of this equilibrium point. 
+				Repeat for case 4.
+				(We are using specific values for the constants to capture the behavior 
+				in cases 3 and 4 since the algebra is a little more intense if you don't do that.)
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Synthesize all of the calculations that you've performed to explain 
+				why the populations behave the way they do in all four cases.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem (Extra credit) 
+				Perform local stability analysis for arbitrary values of the six constants in cases 3 and 4. 
+				\textbf{Hint:} The algebra is not as bad as you think if you are strategic about it.
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+	
+	\begin{problem}
+		The \textit{Brusselator} system of equations,
+		\begin{align*}
+			\dot{x} &= a+x^2y-(1+b)x \\
+			\dot{y} &= bx-x^2y,
+		\end{align*}
+		is a mathematical model of a certain chemical reaction.  
+		(Google ``Brusselator'' and ``Belousov Zhabotinsky reaction'' to find out more.) 
+		The parameters $a$ and $b$ are related to reaction rates, and are therefore positive numbers. 
+		These equations have the property that certain choices of parameters lead to 
+		long-term oscillatory solutions.
+		\begin{subproblems}
+			\subproblem Where is the only equilibrium point of this system?
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Assuming that $a=1$, use local stability analysis to 
+				describe how the stability of this equilibrium point depends on $b$. 
+				In particular, what happens when $b=2$? 
+				Remember not to draw any conclusions about the nonlinear differential equation system 
+				that are not warranted by the results of local stability analysis.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem (Extra credit) 
+				Use a computer to generate some phase portraits to verify your work 
+				and to investigate what happens.  
+				You will see an attracting ``limit cycle'' (long-term oscillatory solution) 
+				appear around the equilibrium point as $b$ increases past 2.
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{problem}
+		Last June, the Deep Space Climate Observatory, which performs real-time solar wind monitoring 
+		(important for warning about geomagnetic storms that can 
+		disrupt power grids, telecommunications, etc.) reached its final destination at ``L1," 
+		nearly a million miles away from the earth.  
+		L1 is one of five equilibrium points, called Lagrange points, 
+		that exist in a three-body system consisting of two large bodies 
+		(such as the sun and the earth) and one small body (such as a satellite).
+		
+		In this problem you will determine the stability of L1 in a simplified case 
+		where we ignore the fact that the large bodies are orbiting each other. 
+		Consider the sun (mass $M_S$) and earth (mass $M_E$) to be a fixed distance $d$ apart. 
+		Let $x(t)$ be the distance of the satellite (with mass $m$) from the sun 
+		on the line joining the sun and earth.
+		
+		\textbf{Note \#1:} 
+			You don't have to look up the values of the masses of the sun and earth in this problem. 
+			You can keep them as variables, along with the gravitational constant. 
+			Don't be afraid of a little algebra. 
+			Be strategic about how you simplify things.
+		
+		\textbf{Note \#2:} 
+			Google ``Lagrange points'' if you'd like to know more or 
+			if you'd like to see the mathematics required 
+			if the rotating frame of reference is taken into account. 
+			You can read more about the DSCO at \url{http://www.nesdis.noaa.gov/DSCOVR/}.
+		
+		\begin{subproblems}
+			\subproblem 
+				Using Newton's Second Law, write the governing differential equation for 
+				the motion of the satellite along this line. 
+				(Look up the equation for the gravitational force between two objects if you need to.) 
+				You may assume that the satellite is positioned in between the sun and earth. 
+				Write this second-order ODE as a system of first order equations. 
+				Find the equilibrium position of the satellite that is between the sun and earth.
+				\begin{solution}
+					
+				\end{solution}
+			\subproblem 
+				Linearize your differential equations about the equilibrium point and 
+				assess its stability using local stability analysis.
+				\begin{solution}
+					
+				\end{solution}
+		\end{subproblems}
+	\end{problem}
+\end{document}
+
